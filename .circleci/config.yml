@@ -1,7 +1,7 @@
 version: 2
 jobs:
   test:
-    parallelism: 2
+    parallelism: 4
     docker:
       - image: circleci/node
     steps:
@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Test application
           command: |
-              TEST=$(circleci tests glob **/src/*.sh | circleci tests split)
+              TEST=$(circleci tests glob **/src/test_*.sh | circleci tests split)
               bash $TEST
 workflows:
   version: 2
