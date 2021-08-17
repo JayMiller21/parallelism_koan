@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Test application
           command: |
-              TEST=$(circleci tests glob **/src/*.sh | circleci tests split --split-by=timings)
+              TEST=$(circleci tests glob **/src/*.sh | circleci tests split)
               bash $TEST
 workflows:
   version: 2
